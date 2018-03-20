@@ -10,7 +10,7 @@
 class Stack
 {
 private:
-
+   
    List data;
 
 public:

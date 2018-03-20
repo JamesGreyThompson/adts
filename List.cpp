@@ -91,13 +91,13 @@ void List::insert(int val, int k)
      num_elements++;
  }
 
-int List::remove(int k)
+void List::remove(int k)
 {
 	if (k < 1 or k > num_elements)//if the location is invalid 
 	     throw out_of_range("List::remove(" +to_string(k)+") failed. (valid indices are 1 to "+to_string(num_elements)+")");//throw an "out_of_range" exception
 	
 	Node* delPtr;
-        int del_data;
+      
 	
 	if(k == 1)
 	{
@@ -119,10 +119,10 @@ int List::remove(int k)
 	    Kth1tmpPtr->link = delPtr->link;
 	  }
 
-	del_data = delPtr->data;
+	
 	delete delPtr;
 	num_elements--;
-        return del_data;
+       
 	}
 	
 	//Implementations of missing operations
@@ -138,7 +138,8 @@ Node* tmpPtr = frontPtr;
 	}
 return tmpPtr->data;
 }
-	void List::clear()
+
+void List::clear()
 	{
 		while(num_elements > 0)
 		remove(1);
